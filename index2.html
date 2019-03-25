@@ -21,6 +21,12 @@
     function saveStorage(id) {
         var data = document.getElementById(id).value;
         var time = new Date().getTime();
+        for(var i=0;i<localStorage.length;i++){
+            var aaa=localStorage.key(i);
+            if(data==localStorage.getItem(aaa)){
+                return false;
+            }
+        }
         localStorage.setItem(time,data);
         alert("数据已保存。");
         loadStorage('msg');
