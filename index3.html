@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+            position: absolute;
+        }
+        .aaa{
+                width: 200px;
+                height: 100px;
+                line-height: 100px;
+                font-size: 50px;
+                text-align: center;
+                font-weight: bold;
+                position: absolute;
+                color: red;
+            }
+        
+    </style>
+</head>
+<body>
+    <div class="aaa">一等奖</div>  
+    <canvas id="canvas" width="200" height="100" ></canvas>
+</body>
+<script>
+    window.onload=function(){
+        var bodyStyle = document.body.style; 
+        bodyStyle.mozUserSelect = 'none'; 
+        bodyStyle.webkitUserSelect = 'none';
+
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        context.width=200;
+        context.height=100; 
+
+        context.beginPath();
+        context.fillStyle="#999999";
+        context.fillRect(0,0,200,100);
+        context.closePath();
+        
+        context.globalCompositeOperation="destination-out";
+        canvas.addEventListener('mousedown',function(e){
+            var e=e||window.event;
+            var x=e.clientX-canvas.offsetLeft;
+            var y=e.clientY-canvas.offsetTop;
+            context.moveTo(x,y)
+            canvas.addEventListener('mousemove',gmove,false)
+        },false)
+
+        canvas.addEventListener('mouseup',function(e){
+            clearC();
+            canvas.removeEventListener('mousemove',gmove,false)
+        },false)
+
+        function gmove(e){               
+            if(typeof e.touches!='undefined'){
+                e=e.touches[0];
+            }
+
+            var mx=e.clientX-canvas.offsetLeft;
+            var my=e.clientY-canvas.offsetTop;
+            context.strokeStyle="white";
+            context.lineCap="round";   
+            context.lineJoin="round";   
+            context.lineWidth=20;
+            context.lineTo(mx,my);
+            context.stroke();
+        }
+            
+        function clearC(){              
+            var data=context.getImageData(0,0,canvas.width,canvas.height).data;   
+            for(var i=0,j=0;i<data.length;i+=4){  
+                if(data[i]&&data[i+1]&&data[i+2]&&data[i+3]){     
+                    j++;
+                }
+            }
+                if(j<=canvas.width*canvas.height*0.15){         
+                        context.clearRect(0,0,canvas.width,canvas.height);
+                }
+        }
+
+    }
+</script>
+</html>
