@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+   .div{
+        margin: 0 auto;
+        width: 400px;
+        height: 400px;
+        background-color: rgba(221, 221, 221, 0.89);
+    }
+    .box{
+        margin: 0 auto;
+        width: 390px;
+        height: 390px;
+        background-color: white;
+        overflow: hidden;
+    }
+   .img{
+        width: 390px;
+        height: 250px;
+        background-size:390px 250px;
+        background-image: url(zhanqiao.jpg);
+        background-repeat: no-repeat;
+        transition-property: all; 
+        transition-duration: 1s;
+        transition-timing-function: linear;
+   }
+   .gray{
+        width: 390px;
+        height: 250px;
+        background-color: rgb(167, 165, 164,0);
+        transition-property: all; 
+        transition-duration: 1s;
+        transition-timing-function: linear;
+   }
+   .time{
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        background-color:rgb(226, 98, 13);
+        position:absolute;
+        top: 20px;
+        right: 450px;
+   }
+   .time p{
+        text-align: center;
+        font-size: 18px;
+        line-height: 10px;
+        color:white;
+   }
+   .text{
+        width: 50px;
+        height: 30px;
+        background-color:rgb(226, 98, 13);
+        position:absolute;
+        top: 228px;
+        left: 439px;
+        transition-property: all; 
+        transition-duration: 1s;
+        transition-timing-function: linear;
+   }
+   .text p{
+        text-align: center;
+        font-size: 14px;
+        line-height: 10px;
+        color:white;
+   }
+   .div2{
+        z-index: 99;
+        margin: 0 auto;
+        width: 360px;
+        height: 122px;
+        background-color:white;
+        padding-left: 20px;
+        
+   }
+   .p{
+        color:rgb(226, 98, 13);
+        position: absolute;
+        top: 300px;
+        transition-property: all; 
+        transition-duration: 1s;
+        transition-timing-function: linear;
+   }
+   .qingdao{
+        color:white;
+        position: relative;
+        top: 230px;
+        transition-property: all; 
+        transition-duration: 1s;
+        transition-timing-function: linear;
+   }
+   .h3{
+     position: absolute;
+          top: 250px;
+          transition-property: all; 
+        transition-duration: 1s;
+        transition-timing-function: linear;
+   }
+   .div:hover .img{
+        width:350px;
+        height: 150px;
+        transform: scale(1.5);
+   }
+   .div:hover .gray{
+          background-color: rgba(73, 72, 71, 0.5);
+          width:350px;
+          height: 150px;
+   }
+   .div:hover .text{
+        position: absolute;
+        top: 165px;
+   }
+   .div:hover .h3{
+          position: absolute;
+          top: 190px;
+   }
+   .div:hover .p{
+     position: absolute;
+        top: 230px;
+   }
+   .div:hover .qingdao{
+        color:rgb(155, 153, 152,0.9);
+        position: relative;
+        top: 120px;
+   }
+</style>
+<body>
+    <div class="div">
+        <div class="box">
+            <div class="div1">
+                <div class="img">
+                     <div class="gray"></div>
+                </div>
+                <div class="time"><p>五月</p></div>
+                <div class="text"><p>照片</p></div>
+            </div>
+            <div class="div2">
+                <h3 style="z-index: 99" class="h3"> 青岛栈桥</h3>
+                <p class="p">国家级AAAA旅游景区</p>
+                <span class="qingdao">青岛栈桥是青岛海滨风景区的景点之一，是国务院于1982年首批公布的国家级风景名胜区。青岛栈桥位于游人如织的青岛中山路南端，桥身从海岸探入如弯月般的青岛湾深处。桥身供游人参观并在此停靠游船，由此乘船可看海上青岛。</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
